@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}Doações Registradas{% endblock %}
+{% block content %}
+
+
+<div class="div-doacoes">
+    <h2 class="h2-lista">Lista de Doações</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Doador</th>
+                <th>Campanha</th>
+                <th>Valor</th>
+                <th>Data da Doação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doacao in doacoes %}
+                <tr>
+                    <td>{{ doacao.doador_nome }}</td>
+                    <td>{{ doacao.campanha_titulo }}</td>
+                    <td>{{ doacao.valor}}</td>
+                    <td>{{ doacao.data_doacao }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">Nenhuma doação registrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+
